@@ -7,10 +7,13 @@ import { z } from "zod"
 import Image from 'next/image'
 
 import { Button } from "@/components/ui/button"
-import { Form } from "@/components/ui/form"
+import {
+    Form
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link'
-import {toast} from "sonner"; //new version of error message pop up from the windows.
+import {toast} from "sonner";
+import FormField from "@/components/FormField"; //new version of error message pop up from the windows.
 
 
 //create a new function here: Use schema to format the input from the users.
@@ -54,7 +57,7 @@ const AuthForm = ({ type } : { type: FormType }) => {
         }
     }
 
-    const isSignIn = type === "sign-in";
+    const isSignIn = type === "sign-in"; //用于判断是否处于注册页面，如果是的话，就显示不一样的输入标题。
 
     return (
         <div className="card-border lg:min-w-[566px]">
@@ -72,7 +75,13 @@ const AuthForm = ({ type } : { type: FormType }) => {
                 <h3>Practice job interview with AI </h3>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
-                        {!isSignIn && <p>Name</p>}
+                        {!isSignIn && (
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                label="Name"
+                                placeholder="Your name"/>
+                            )}
                         <p>Email</p>
                         <p>Password</p>
 
