@@ -204,6 +204,7 @@ export const interviewCovers = [
   "/yahoo.png",
 ];
 
+/*下面建立的是一个dummy data，建立的是一个Array，用于测试*/
 export const dummyInterviews: Interview[] = [
   {
     id: "1",
