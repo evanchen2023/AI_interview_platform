@@ -59,7 +59,7 @@ const Agent = ({ userName } : AgentProps) => {
                     </button>
                 ) : (
                     <button className="btn-disconnect">
-                        End
+                        End Here
                     </button>
                 )}
             </div>
